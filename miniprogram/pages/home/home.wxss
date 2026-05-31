@@ -1,0 +1,137 @@
+.family-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.family-card-content {
+  flex: 1;
+}
+
+.family-name {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8rpx;
+}
+
+.family-meta {
+  font-size: 26rpx;
+  color: #666666;
+}
+
+.family-card-arrow {
+  font-size: 40rpx;
+  color: #cccccc;
+}
+
+.quick-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32rpx;
+}
+
+.quick-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24rpx 0;
+}
+
+.quick-icon {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  color: #ffffff;
+  margin-bottom: 12rpx;
+}
+
+.medical-icon {
+  background: #4CAF50;
+}
+
+.vaccine-icon {
+  background: #2196F3;
+}
+
+.insurance-icon {
+  background: #FF9800;
+}
+
+.quick-btn text {
+  font-size: 24rpx;
+  color: #555555;
+}
+
+.timeline {
+  padding-left: 8rpx;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  padding-left: 24rpx;
+}
+
+.timeline-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: -8rpx;
+  top: 32rpx;
+}
+
+.timeline-dot.medical {
+  background: #4CAF50;
+}
+
+.timeline-dot.vaccine {
+  background: #2196F3;
+}
+
+.timeline-dot.insurance {
+  background: #FF9800;
+}
+
+.timeline-body {
+  flex: 1;
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+
+.timeline-type {
+  font-size: 24rpx;
+  color: #4CAF50;
+  font-weight: 500;
+}
+
+.timeline-time {
+  font-size: 22rpx;
+  color: #999999;
+}
+
+.timeline-title {
+  font-size: 28rpx;
+  color: #333333;
+  margin-bottom: 6rpx;
+}
+
+.timeline-desc {
+  font-size: 24rpx;
+  color: #888888;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

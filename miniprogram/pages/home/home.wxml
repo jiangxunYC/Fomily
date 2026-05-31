@@ -1,0 +1,67 @@
+<view class="container">
+  <!-- 未登录引导 -->
+  <view class="guide-banner" wx:if="{{!isLoggedIn}}">
+    <view class="guide-title">欢迎来到 Fomily</view>
+    <view class="guide-desc">记录家人的健康档案、疫苗接种与保险信息，让关爱更有据可循。</view>
+    <view class="guide-btn" bindtap="goLogin">创建/加入家庭</view>
+  </view>
+
+  <!-- 家庭概览卡片 -->
+  <view class="card family-card" bindtap="goFamily">
+    <view class="family-card-content">
+      <view class="family-name">{{familyName || '我的家庭'}}</view>
+      <view class="family-meta">{{memberCount ? memberCount + '位成员' : '暂无成员'}}</view>
+    </view>
+    <view class="family-card-arrow">›</view>
+  </view>
+
+  <!-- 快捷添加 -->
+  <view class="quick-actions" wx:if="{{isLoggedIn && memberCount > 0}}">
+    <view class="quick-btn" bindtap="quickAdd" data-type="medical">
+      <view class="quick-icon medical-icon">+</view>
+      <text>看病记录</text>
+    </view>
+    <view class="quick-btn" bindtap="quickAdd" data-type="vaccine">
+      <view class="quick-icon vaccine-icon">+</view>
+      <text>疫苗接种</text>
+    </view>
+    <view class="quick-btn" bindtap="quickAdd" data-type="insurance">
+      <view class="quick-icon insurance-icon">+</view>
+      <text>保险记录</text>
+    </view>
+  </view>
+
+  <!-- 最近动态 -->
+  <view class="section-title" wx:if="{{isLoggedIn}}">最近动态</view>
+
+  <view class="timeline" wx:if="{{isLoggedIn && recentRecords.length > 0}}">
+    <view
+      class="timeline-item card"
+      wx:for="{{recentRecords}}"
+      wx:key="_id"
+      bindtap="goRecordDetail"
+      data-id="{{item._id}}"
+      data-type="{{item.type}}"
+    >
+      <view class="timeline-dot {{item.type}}"></view>
+      <view class="timeline-body">
+        <view class="timeline-header">
+          <text class="timeline-type">{{item.typeLabel}}</text>
+          <text class="timeline-time">{{item.relativeTime}}</text>
+        </view>
+        <view class="timeline-title">{{item.memberName}} · {{item.title}}</view>
+        <view class="timeline-desc" wx:if="{{item.summary}}">{{item.summary}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 有成员但无记录 -->
+  <view class="empty-state" wx:if="{{isLoggedIn && memberCount > 0 && recentRecords.length === 0}}">
+    <text class="empty-text">还没有记录，点击上方快速添加</text>
+  </view>
+
+  <!-- 已登录但无成员 -->
+  <view class="empty-state" wx:if="{{isLoggedIn && memberCount === 0}}">
+    <text class="empty-text">请先添加家庭成员</text>
+  </view>
+</view>

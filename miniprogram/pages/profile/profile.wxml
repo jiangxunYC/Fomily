@@ -1,0 +1,36 @@
+<view class="page">
+  <!-- 用户信息区域 -->
+  <view class="user-card" bindtap="onUserCardTap">
+    <image class="avatar" src="{{isLoggedIn ? (userInfo.avatar || '/images/default-avatar.png') : '/images/default-avatar.png'}}" mode="aspectFill"></image>
+    <view class="user-text">
+      <text class="nickname">{{isLoggedIn ? (userInfo.nickname || '未设置昵称') : '点击登录'}}</text>
+      <text class="family-name" wx:if="{{isLoggedIn && familyInfo.name}}">{{familyInfo.name}}</text>
+    </view>
+    <image class="arrow" src="/images/arrow-right.png" wx:if="{{!isLoggedIn}}"></image>
+  </view>
+
+  <!-- 菜单列表 -->
+  <view class="menu-list">
+    <view class="menu-item" bindtap="onMenuTap" data-url="/pages/my-family/my-family" data-need-login="{{true}}">
+      <text class="menu-label">我的家庭</text>
+      <image class="arrow" src="/images/arrow-right.png"></image>
+    </view>
+    <view class="menu-item" bindtap="onMenuTap" data-url="/pages/member-manage/member-manage" data-need-login="{{true}}">
+      <text class="menu-label">成员管理</text>
+      <image class="arrow" src="/images/arrow-right.png"></image>
+    </view>
+    <view class="menu-item" bindtap="onMenuTap" data-url="/pages/activity-log/activity-log" data-need-login="{{true}}">
+      <text class="menu-label">操作记录</text>
+      <image class="arrow" src="/images/arrow-right.png"></image>
+    </view>
+    <view class="menu-item" bindtap="onMenuTap" data-url="/pages/about/about" data-need-login="{{false}}">
+      <text class="menu-label">关于</text>
+      <image class="arrow" src="/images/arrow-right.png"></image>
+    </view>
+  </view>
+
+  <!-- 退出登录按钮 -->
+  <view class="logout-btn" wx:if="{{isLoggedIn}}" bindtap="onLogout">
+    <text>退出登录</text>
+  </view>
+</view>

@@ -1,0 +1,15 @@
+# 微信小程序云函数依赖
+cloudfunctions/*/node_modules/
+
+# 临时文件
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# 微信开发者工具
+.wechat/
+
+# IDE
+.vscode/
+.idea/

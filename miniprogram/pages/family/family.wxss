@@ -1,0 +1,326 @@
+.page {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding-bottom: 120rpx;
+}
+
+/* 登录引导 */
+.login-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 60rpx 40rpx;
+}
+
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 80rpx 60rpx;
+  width: 100%;
+}
+
+.banner-icon {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 40rpx;
+}
+
+.banner-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.banner-desc {
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 48rpx;
+}
+
+.banner-btn {
+  background: #4CAF50;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+  padding: 20rpx 80rpx;
+  border: none;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 200rpx;
+}
+
+.empty-img {
+  width: 240rpx;
+  height: 240rpx;
+  margin-bottom: 32rpx;
+}
+
+.empty-text {
+  font-size: 30rpx;
+  color: #999;
+  margin-bottom: 48rpx;
+}
+
+.add-first-btn {
+  background: #4CAF50;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 44rpx;
+  padding: 20rpx 60rpx;
+  border: none;
+}
+
+/* 成员横向滚动 */
+.member-tabs {
+  white-space: nowrap;
+  background: #fff;
+  padding: 24rpx 16rpx;
+}
+
+.member-tab {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20rpx;
+  padding: 12rpx 16rpx;
+  border-radius: 16rpx;
+}
+
+.member-tab.active {
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.member-tab.active .tab-name {
+  color: #4CAF50;
+  font-weight: 600;
+}
+
+.tab-avatar {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  margin-bottom: 8rpx;
+  border: 4rpx solid transparent;
+}
+
+.member-tab.active .tab-avatar {
+  border-color: #4CAF50;
+}
+
+.tab-name {
+  font-size: 24rpx;
+  color: #666;
+  max-width: 100rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 成员卡片 */
+.member-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  margin: 24rpx 24rpx 0;
+  padding: 32rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.card-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}
+
+.card-info {
+  flex: 1;
+  overflow: hidden;
+}
+
+.card-name-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+
+.card-name {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #333;
+  margin-right: 16rpx;
+}
+
+.card-relation {
+  font-size: 24rpx;
+  color: #4CAF50;
+  background: rgba(76, 175, 80, 0.1);
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+.card-meta {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.card-meta text {
+  margin-right: 20rpx;
+}
+
+.card-bound {
+  color: #4CAF50;
+}
+
+.card-unbound {
+  color: #ccc;
+}
+
+.card-arrow {
+  font-size: 40rpx;
+  color: #ccc;
+  flex-shrink: 0;
+}
+
+/* 记录列表 */
+.record-section {
+  margin: 24rpx;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 0 24rpx;
+}
+
+.select-count {
+  font-size: 28rpx;
+  color: #666;
+  flex: 1;
+}
+
+.cancel-select {
+  font-size: 28rpx;
+  color: #999;
+  margin-right: 32rpx;
+}
+
+.batch-delete {
+  font-size: 28rpx;
+  color: #f44336;
+}
+
+.empty-record {
+  text-align: center;
+  padding: 80rpx 0;
+  color: #ccc;
+  font-size: 28rpx;
+}
+
+.record-item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 28rpx 24rpx;
+  border-radius: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.record-item.selected {
+  background: rgba(76, 175, 80, 0.05);
+}
+
+.record-check {
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.check-box {
+  width: 40rpx;
+  height: 40rpx;
+  border: 3rpx solid #ddd;
+  border-radius: 50%;
+}
+
+.check-box.checked {
+  background: #4CAF50;
+  border-color: #4CAF50;
+}
+
+.record-badge {
+  flex-shrink: 0;
+  padding: 8rpx 16rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+  font-size: 22rpx;
+  font-weight: 500;
+}
+
+.record-badge-medical {
+  background: #E3F2FD;
+  color: #1976D2;
+}
+
+.record-badge-vaccine {
+  background: #FFF3E0;
+  color: #F57C00;
+}
+
+.record-badge-insurance {
+  background: #E8F5E9;
+  color: #388E3C;
+}
+
+.record-body {
+  flex: 1;
+  overflow: hidden;
+}
+
+.record-summary {
+  font-size: 28rpx;
+  color: #333;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.record-date {
+  font-size: 24rpx;
+  color: #bbb;
+  margin-top: 6rpx;
+  display: block;
+}
+
+/* FAB */
+.fab {
+  position: fixed;
+  right: 40rpx;
+  bottom: 140rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background: #4CAF50;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(76, 175, 80, 0.4);
+}
+
+.fab-icon {
+  font-size: 52rpx;
+  color: #fff;
+  line-height: 1;
+}

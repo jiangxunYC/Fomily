@@ -1,0 +1,43 @@
+<view class="page">
+  <view class="member-header">
+    <image class="avatar" src="{{member.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill"/>
+    <view class="info">
+      <text class="name">{{member.name}}</text>
+      <text class="relation">{{relationLabel}}</text>
+      <text class="birthday">{{member.birthday}} ({{age}}岁)</text>
+    </view>
+  </view>
+
+  <view class="stats-row">
+    <view class="stat-card">
+      <text class="stat-num">{{medicalCount}}</text>
+      <text class="stat-label">看病</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-num">{{vaccineCount}}</text>
+      <text class="stat-label">疫苗</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-num">{{insuranceCount}}</text>
+      <text class="stat-label">保险</text>
+    </view>
+  </view>
+
+  <view class="tab-bar">
+    <view class="tab {{activeTab === 'medical' ? 'active' : ''}}" bindtap="switchTab" data-tab="medical">看病记录</view>
+    <view class="tab {{activeTab === 'vaccine' ? 'active' : ''}}" bindtap="switchTab" data-tab="vaccine">疫苗记录</view>
+    <view class="tab {{activeTab === 'insurance' ? 'active' : ''}}" bindtap="switchTab" data-tab="insurance">保险记录</view>
+  </view>
+
+  <view class="record-list">
+    <block wx:if="{{records.length > 0}}">
+      <view class="record-item" wx:for="{{records}}" wx:key="_id" bindtap="goRecordDetail" data-id="{{item._id}}">
+        <text class="record-date">{{item.dateStr}}</text>
+        <text class="record-summary">{{item.summary}}</text>
+      </view>
+    </block>
+    <view class="empty" wx:else>
+      <text>暂无{{activeTabLabel}}记录</text>
+    </view>
+  </view>
+</view>

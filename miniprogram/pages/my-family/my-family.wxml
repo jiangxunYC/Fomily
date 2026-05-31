@@ -1,0 +1,41 @@
+<view class="page">
+  <view class="section">
+    <view class="section-title">家庭名称</view>
+    <view class="family-name-row">
+      <text class="family-name" wx:if="{{!editingName}}">{{familyName}}</text>
+      <input class="name-input" wx:if="{{editingName}}" value="{{familyName}}" bindinput="onNameInput" focus="{{editingName}}"/>
+      <text class="edit-icon" bindtap="onToggleEditName" wx:if="{{isOwner}}">{{editingName ? '✓' : '✎'}}</text>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">邀请码</view>
+    <view class="invite-code-row">
+      <text class="invite-code">{{inviteCode}}</text>
+      <button class="btn-copy" size="mini" bindtap="onCopyCode">复制</button>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">权限设置</view>
+    <view class="setting-item">
+      <text class="setting-label">家庭成员互相可编辑</text>
+      <switch checked="{{allowCrossEdit}}" bindchange="onToggleCrossEdit" color="#4CAF50" disabled="{{!isOwner}}"/>
+    </view>
+    <view class="setting-item">
+      <text class="setting-label">成员记录互相可见</text>
+      <switch checked="{{allowCrossView}}" bindchange="onToggleCrossView" color="#4CAF50" disabled="{{!isOwner}}"/>
+    </view>
+  </view>
+
+  <view class="section" wx:if="{{isOwner}}">
+    <view class="section-title">管理</view>
+    <view class="setting-item" bindtap="onTransferOwner">
+      <text class="setting-label">转让管理员</text>
+      <text class="arrow">›</text>
+    </view>
+    <view class="danger-btn-wrap">
+      <button class="btn-disband" bindtap="onDisbandFamily">解散家庭</button>
+    </view>
+  </view>
+</view>

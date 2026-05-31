@@ -1,0 +1,91 @@
+<view class="page">
+  <view class="member-list" wx:if="{{members.length > 0}}">
+    <view class="member-card" wx:for="{{members}}" wx:key="_id">
+      <view class="member-info" bindtap="onEditMember" data-index="{{index}}">
+        <image class="avatar" src="{{item.avatar || '/images/default-avatar.png'}}" mode="aspectFill"/>
+        <view class="info-text">
+          <view class="name-row">
+            <text class="name">{{item.name}}</text>
+            <text class="relation-label">{{item.relationLabel}}</text>
+          </view>
+          <view class="meta-row">
+            <text class="role-badge role-{{item.role}}">{{item.roleLabel}}</text>
+            <text class="bound-status {{item.bound ? 'bound' : 'unbound'}}">{{item.bound ? '已绑定' : '未绑定'}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="edit-icon" bindtap="onEditMember" data-index="{{index}}">
+        <text class="iconfont">✎</text>
+      </view>
+      <view class="delete-btn" wx:if="{{item.role !== 'owner'}}" bindtap="onDeleteMember" data-index="{{index}}">
+        <text class="iconfont">✕</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:if="{{!loading && members.length === 0}}">
+    <image class="empty-img" src="/images/empty.png" mode="aspectFit"/>
+    <text class="empty-text">添加第一个家庭成员</text>
+  </view>
+
+  <view class="bottom-btn-wrap">
+    <button class="btn-add" bindtap="onShowForm">添加成员</button>
+  </view>
+
+  <!-- Member Form Modal -->
+  <view class="modal-mask" wx:if="{{showForm}}" bindtap="onHideForm"/>
+  <view class="modal-panel {{showForm ? 'show' : ''}}">
+    <view class="modal-header">
+      <text class="modal-title">{{editIndex >= 0 ? '编辑成员' : '添加成员'}}</text>
+      <text class="modal-close" bindtap="onHideForm">✕</text>
+    </view>
+    <scroll-view scroll-y class="modal-body">
+      <view class="form-item">
+        <text class="form-label">头像</text>
+        <view class="avatar-upload" bindtap="onChooseAvatar">
+          <image class="avatar-preview" src="{{form.avatar || '/images/default-avatar.png'}}" mode="aspectFill"/>
+          <text class="avatar-tip">点击更换</text>
+        </view>
+      </view>
+      <view class="form-item">
+        <text class="form-label">姓名 *</text>
+        <input class="form-input" value="{{form.name}}" bindinput="onInputName" placeholder="请输入姓名"/>
+      </view>
+      <view class="form-item">
+        <text class="form-label">类型</text>
+        <picker range="{{typeOptions}}" range-key="label" value="{{form.typeIndex}}" bindchange="onTypeChange">
+          <view class="form-picker">{{typeOptions[form.typeIndex].label}}</view>
+        </picker>
+      </view>
+      <view class="form-item">
+        <text class="form-label">关系</text>
+        <picker range="{{relationOptions}}" range-key="label" value="{{form.relationIndex}}" bindchange="onRelationChange">
+          <view class="form-picker">{{relationOptions[form.relationIndex].label}}</view>
+        </picker>
+      </view>
+      <view class="form-item">
+        <text class="form-label">生日</text>
+        <picker mode="date" value="{{form.birthday}}" bindchange="onBirthdayChange">
+          <view class="form-picker">{{form.birthday || '请选择'}}</view>
+        </picker>
+      </view>
+      <view class="form-item">
+        <text class="form-label">手机号</text>
+        <input class="form-input" type="number" value="{{form.phone}}" bindinput="onInputPhone" placeholder="请输入手机号"/>
+      </view>
+      <view class="form-item" wx:if="{{typeOptions[form.typeIndex].value === 'pet'}}">
+        <text class="form-label">品种</text>
+        <input class="form-input" value="{{form.breed}}" bindinput="onInputBreed" placeholder="请输入品种"/>
+      </view>
+      <view class="form-item" wx:if="{{isOwner}}">
+        <text class="form-label">角色</text>
+        <picker range="{{roleOptions}}" range-key="label" value="{{form.roleIndex}}" bindchange="onRoleChange">
+          <view class="form-picker">{{roleOptions[form.roleIndex].label}}</view>
+        </picker>
+      </view>
+    </scroll-view>
+    <view class="modal-footer">
+      <button class="btn-save" bindtap="onSaveMember">保存</button>
+    </view>
+  </view>
+</view>

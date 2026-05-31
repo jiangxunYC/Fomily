@@ -1,0 +1,104 @@
+<view class="page">
+  <view class="type-selector">
+    <view class="type-item {{type === 'medical' ? 'active' : ''}}" bindtap="selectType" data-type="medical">看病</view>
+    <view class="type-item {{type === 'vaccine' ? 'active' : ''}}" bindtap="selectType" data-type="vaccine">疫苗</view>
+    <view class="type-item {{type === 'insurance' ? 'active' : ''}}" bindtap="selectType" data-type="insurance">保险</view>
+  </view>
+
+  <view class="form-card">
+    <view class="form-item">
+      <text class="label">家庭成员</text>
+      <picker mode="selector" range="{{members}}" range-key="name" value="{{memberIndex}}" bindchange="onMemberChange">
+        <text class="picker-text {{memberIndex >= 0 ? '' : 'placeholder'}}">{{memberIndex >= 0 ? members[memberIndex].name : '请选择成员'}}</text>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text class="label">日期</text>
+      <picker mode="date" value="{{form.date}}" bindchange="onDateChange">
+        <text class="picker-text {{form.date ? '' : 'placeholder'}}">{{form.date || '请选择日期'}}</text>
+      </picker>
+    </view>
+  </view>
+
+  <view class="form-card" wx:if="{{type === 'medical'}}">
+    <view class="form-item">
+      <text class="label">医院/诊所</text>
+      <input class="input" placeholder="请输入" value="{{form.hospital}}" bindinput="onInput" data-field="hospital"/>
+    </view>
+    <view class="form-item">
+      <text class="label">诊断结果</text>
+      <input class="input" placeholder="请输入" value="{{form.diagnosis}}" bindinput="onInput" data-field="diagnosis"/>
+    </view>
+    <view class="form-item">
+      <text class="label">处方/用药</text>
+      <textarea class="textarea" placeholder="请输入" value="{{form.prescription}}" bindinput="onInput" data-field="prescription"/>
+    </view>
+    <view class="form-item">
+      <text class="label">费用</text>
+      <input class="input" type="digit" placeholder="请输入金额" value="{{form.cost}}" bindinput="onInput" data-field="cost"/>
+    </view>
+    <view class="form-item">
+      <text class="label">下次复诊日期</text>
+      <picker mode="date" value="{{form.nextVisit}}" bindchange="onFieldDateChange" data-field="nextVisit">
+        <text class="picker-text {{form.nextVisit ? '' : 'placeholder'}}">{{form.nextVisit || '请选择'}}</text>
+      </picker>
+    </view>
+  </view>
+
+  <view class="form-card" wx:if="{{type === 'vaccine'}}">
+    <view class="form-item">
+      <text class="label">疫苗名称</text>
+      <input class="input" placeholder="请输入" value="{{form.vaccine_name}}" bindinput="onInput" data-field="vaccine_name"/>
+    </view>
+    <view class="form-item">
+      <text class="label">接种机构</text>
+      <input class="input" placeholder="请输入" value="{{form.institution}}" bindinput="onInput" data-field="institution"/>
+    </view>
+    <view class="form-item">
+      <text class="label">下一针日期</text>
+      <picker mode="date" value="{{form.nextDate}}" bindchange="onFieldDateChange" data-field="nextDate">
+        <text class="picker-text {{form.nextDate ? '' : 'placeholder'}}">{{form.nextDate || '请选择'}}</text>
+      </picker>
+    </view>
+  </view>
+
+  <view class="form-card" wx:if="{{type === 'insurance'}}">
+    <view class="form-item">
+      <text class="label">保险公司</text>
+      <input class="input" placeholder="请输入" value="{{form.company}}" bindinput="onInput" data-field="company"/>
+    </view>
+    <view class="form-item">
+      <text class="label">险种名称</text>
+      <input class="input" placeholder="请输入" value="{{form.insurance_type}}" bindinput="onInput" data-field="insurance_type"/>
+    </view>
+    <view class="form-item">
+      <text class="label">保单号</text>
+      <input class="input" placeholder="请输入" value="{{form.policyNo}}" bindinput="onInput" data-field="policyNo"/>
+    </view>
+    <view class="form-item">
+      <text class="label">到期日期</text>
+      <picker mode="date" value="{{form.expireDate}}" bindchange="onFieldDateChange" data-field="expireDate">
+        <text class="picker-text {{form.expireDate ? '' : 'placeholder'}}">{{form.expireDate || '请选择'}}</text>
+      </picker>
+    </view>
+    <view class="form-item">
+      <text class="label">保费金额</text>
+      <input class="input" type="digit" placeholder="请输入金额" value="{{form.premium}}" bindinput="onInput" data-field="premium"/>
+    </view>
+  </view>
+
+  <view class="form-card">
+    <text class="label">附件图片</text>
+    <view class="image-upload">
+      <image wx:for="{{images}}" wx:key="*this" src="{{item}}" class="upload-thumb" bindtap="removeImage" data-index="{{index}}"/>
+      <view class="upload-btn" bindtap="chooseImage" wx:if="{{images.length < 9}}">
+        <text class="plus">+</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="bottom-bar">
+    <button class="btn-save" bindtap="onSave">保存</button>
+  </view>
+</view>

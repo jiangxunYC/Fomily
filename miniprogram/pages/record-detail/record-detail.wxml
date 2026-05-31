@@ -1,0 +1,82 @@
+<view class="page">
+  <view class="header">
+    <view class="header-top">
+      <text class="member-name">{{memberName}}</text>
+      <view class="type-badge">{{typeLabel}}</view>
+    </view>
+    <text class="record-date">{{dateStr}}</text>
+  </view>
+
+  <view class="detail-card" wx:if="{{type === 'medical'}}">
+    <view class="field" wx:if="{{record.hospital}}">
+      <text class="field-label">医院/诊所</text>
+      <text class="field-value">{{record.hospital}}</text>
+    </view>
+    <view class="field" wx:if="{{record.diagnosis}}">
+      <text class="field-label">诊断结果</text>
+      <text class="field-value">{{record.diagnosis}}</text>
+    </view>
+    <view class="field" wx:if="{{record.prescription}}">
+      <text class="field-label">处方/用药</text>
+      <text class="field-value">{{record.prescription}}</text>
+    </view>
+    <view class="field" wx:if="{{record.cost}}">
+      <text class="field-label">费用</text>
+      <text class="field-value">¥{{record.cost}}</text>
+    </view>
+    <view class="field" wx:if="{{record.nextVisit}}">
+      <text class="field-label">下次复诊日期</text>
+      <text class="field-value">{{record.nextVisit}}</text>
+    </view>
+  </view>
+
+  <view class="detail-card" wx:if="{{type === 'vaccine'}}">
+    <view class="field" wx:if="{{record.vaccineName}}">
+      <text class="field-label">疫苗名称</text>
+      <text class="field-value">{{record.vaccineName}}</text>
+    </view>
+    <view class="field" wx:if="{{record.institution}}">
+      <text class="field-label">接种机构</text>
+      <text class="field-value">{{record.institution}}</text>
+    </view>
+    <view class="field" wx:if="{{record.nextDate}}">
+      <text class="field-label">下一针日期</text>
+      <text class="field-value">{{record.nextDate}}</text>
+    </view>
+  </view>
+
+  <view class="detail-card" wx:if="{{type === 'insurance'}}">
+    <view class="field" wx:if="{{record.company}}">
+      <text class="field-label">保险公司</text>
+      <text class="field-value">{{record.company}}</text>
+    </view>
+    <view class="field" wx:if="{{record.insuranceName}}">
+      <text class="field-label">险种名称</text>
+      <text class="field-value">{{record.insuranceName}}</text>
+    </view>
+    <view class="field" wx:if="{{record.policyNo}}">
+      <text class="field-label">保单号</text>
+      <text class="field-value">{{record.policyNo}}</text>
+    </view>
+    <view class="field" wx:if="{{record.expireDate}}">
+      <text class="field-label">到期日期</text>
+      <text class="field-value">{{record.expireDate}}</text>
+    </view>
+    <view class="field" wx:if="{{record.premium}}">
+      <text class="field-label">保费金额</text>
+      <text class="field-value">¥{{record.premium}}</text>
+    </view>
+  </view>
+
+  <view class="attachments" wx:if="{{record.images && record.images.length > 0}}">
+    <text class="section-title">附件图片</text>
+    <view class="image-grid">
+      <image wx:for="{{record.images}}" wx:key="*this" src="{{item}}" mode="aspectFill" class="thumb" bindtap="previewImage" data-url="{{item}}"/>
+    </view>
+  </view>
+
+  <view class="bottom-bar">
+    <button class="btn-edit" bindtap="goEdit">编辑</button>
+    <button class="btn-delete" bindtap="onDelete">删除</button>
+  </view>
+</view>

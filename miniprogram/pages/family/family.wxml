@@ -1,0 +1,91 @@
+<view class="page">
+  <!-- 未登录遮罩 -->
+  <view class="login-banner" wx:if="{{!isLoggedIn}}">
+    <view class="banner-content">
+      <image class="banner-icon" src="/images/login-guide.png" mode="aspectFit" />
+      <text class="banner-title">登录后管理家庭成员</text>
+      <text class="banner-desc">记录家人的健康、疫苗、保险信息</text>
+      <button class="banner-btn" bindtap="goLogin">立即登录</button>
+    </view>
+  </view>
+
+  <!-- 已登录无成员 -->
+  <view class="empty-state" wx:elif="{{isLoggedIn && members.length === 0}}">
+    <image class="empty-img" src="/images/empty-family.png" mode="aspectFit" />
+    <text class="empty-text">还没有家庭成员</text>
+    <button class="add-first-btn" bindtap="goAddMember">添加第一个家庭成员</button>
+  </view>
+
+  <!-- 正常内容 -->
+  <block wx:else>
+    <!-- 成员横向滚动 -->
+    <scroll-view class="member-tabs" scroll-x enable-flex scroll-with-animation>
+      <view
+        class="member-tab {{currentMemberId === item._id ? 'active' : ''}}"
+        wx:for="{{members}}"
+        wx:key="_id"
+        bindtap="switchMember"
+        data-id="{{item._id}}"
+      >
+        <image class="tab-avatar" src="{{item.avatar || '/images/default-avatar.png'}}" mode="aspectFill" />
+        <text class="tab-name">{{item.name}}</text>
+      </view>
+    </scroll-view>
+
+    <!-- 成员信息卡片 -->
+    <view class="member-card" wx:if="{{currentMember}}" bindtap="goMemberDetail">
+      <image class="card-avatar" src="{{currentMember.avatar || '/images/default-avatar.png'}}" mode="aspectFill" />
+      <view class="card-info">
+        <view class="card-name-row">
+          <text class="card-name">{{currentMember.name}}</text>
+          <text class="card-relation">{{currentMember.relationLabel}}</text>
+        </view>
+        <view class="card-meta">
+          <text wx:if="{{currentMember.age !== ''}}">{{currentMember.age}}岁</text>
+          <text class="card-bound" wx:if="{{currentMember.is_bound}}">已绑定</text>
+          <text class="card-unbound" wx:else>未绑定</text>
+        </view>
+      </view>
+      <view class="card-arrow">›</view>
+    </view>
+
+    <!-- 记录列表 -->
+    <view class="record-section">
+      <view class="section-header" wx:if="{{multiSelect}}">
+        <text class="select-count">已选 {{selectedIds.length}} 项</text>
+        <text class="cancel-select" bindtap="cancelMultiSelect">取消</text>
+        <text class="batch-delete" bindtap="batchDelete">删除</text>
+      </view>
+
+      <view class="empty-record" wx:if="{{records.length === 0}}">
+        <text>暂无记录</text>
+      </view>
+
+      <view
+        class="record-item {{multiSelect ? 'selectable' : ''}} {{selectedIds.indexOf(item._id) > -1 ? 'selected' : ''}}"
+        wx:for="{{records}}"
+        wx:key="_id"
+        bindtap="tapRecord"
+        bindlongpress="longPressRecord"
+        data-id="{{item._id}}"
+        data-type="{{item.type}}"
+      >
+        <view class="record-check" wx:if="{{multiSelect}}">
+          <view class="check-box {{selectedIds.indexOf(item._id) > -1 ? 'checked' : ''}}"></view>
+        </view>
+        <view class="record-badge record-badge-{{item.type}}">
+          <text>{{item.typeLabel}}</text>
+        </view>
+        <view class="record-body">
+          <text class="record-summary">{{item.summary}}</text>
+          <text class="record-date">{{item.dateStr}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- FAB -->
+  <view class="fab" wx:if="{{isLoggedIn && members.length > 0}}" bindtap="goAddRecord">
+    <text class="fab-icon">+</text>
+  </view>
+</view>
