@@ -84,6 +84,18 @@ page {
   color: #556257;
 }
 
+.empty-icon-wrap {
+  width: 160rpx;
+  height: 160rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(213, 227, 214, 0.4);
+  border-radius: 50%;
+  font-size: 64rpx;
+  margin-bottom: 32rpx;
+}
+
 .fab {
   position: fixed;
   right: 32rpx;

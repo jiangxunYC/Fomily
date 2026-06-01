@@ -30,7 +30,8 @@ Page({
 
   onMenuTap(e) {
     const { url, needLogin } = e.currentTarget.dataset
-    if (needLogin && !this.data.isLoggedIn) {
+    const requiresLogin = needLogin === 'true' || needLogin === true
+    if (requiresLogin && !this.data.isLoggedIn) {
       wx.navigateTo({ url: '/pages/login/login' })
       return
     }

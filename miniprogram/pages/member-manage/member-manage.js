@@ -115,7 +115,7 @@ Page({
     wx.showModal({
       title: '确认删除',
       content: '删除后该成员的所有记录将被一并删除',
-      confirmColor: '#f44336',
+      confirmColor: '#e57373',
       success: async (res) => {
         if (!res.confirm) return
         try {

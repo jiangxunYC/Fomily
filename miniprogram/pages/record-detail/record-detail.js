@@ -62,7 +62,7 @@ Page({
     wx.showModal({
       title: '确认删除',
       content: '删除后无法恢复，确定要删除吗？',
-      confirmColor: '#e53935',
+      confirmColor: '#e57373',
       success: (res) => {
         if (res.confirm) this.doDelete()
       }

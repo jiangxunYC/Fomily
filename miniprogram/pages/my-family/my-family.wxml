@@ -20,11 +20,11 @@
     <view class="section-title">权限设置</view>
     <view class="setting-item">
       <text class="setting-label">家庭成员互相可编辑</text>
-      <switch checked="{{allowCrossEdit}}" bindchange="onToggleCrossEdit" color="#4CAF50" disabled="{{!isOwner}}"/>
+      <switch checked="{{allowCrossEdit}}" bindchange="onToggleCrossEdit" color="#426446" disabled="{{!isOwner}}"/>
     </view>
     <view class="setting-item">
       <text class="setting-label">成员记录互相可见</text>
-      <switch checked="{{allowCrossView}}" bindchange="onToggleCrossView" color="#4CAF50" disabled="{{!isOwner}}"/>
+      <switch checked="{{allowCrossView}}" bindchange="onToggleCrossView" color="#426446" disabled="{{!isOwner}}"/>
     </view>
   </view>
 

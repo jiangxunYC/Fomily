@@ -129,7 +129,7 @@ Page({
         wx.showModal({
           title: '确认转让',
           content: `确定将管理员转让给 ${target.name}？转让后你将变为编辑者。`,
-          confirmColor: '#4CAF50',
+          confirmColor: '#426446',
           success: async (modalRes) => {
             if (!modalRes.confirm) return
             try {
@@ -154,7 +154,7 @@ Page({
     wx.showModal({
       title: '解散家庭',
       content: '解散后所有数据永久删除，此操作不可撤销！',
-      confirmColor: '#f44336',
+      confirmColor: '#e57373',
       confirmText: '确认解散',
       success: async (res) => {
         if (!res.confirm) return

@@ -1,4 +1,4 @@
-const { checkLogin } = require('../../utils/auth')
+const { checkLogin, login } = require('../../utils/auth')
 const { db, collections, formatDate, calcAge, getRecordTypeLabel, getRelationLabel } = require('../../utils/util')
 
 Page({
@@ -12,10 +12,14 @@ Page({
     selectedIds: []
   },
 
-  onShow() {
+  async onShow() {
     const isLoggedIn = checkLogin()
     this.setData({ isLoggedIn })
     if (isLoggedIn) {
+      const app = getApp()
+      if (!app.globalData.familyInfo) {
+        await login()
+      }
       this.loadMembers()
     }
   },
@@ -31,11 +35,13 @@ Page({
         .orderBy('created_at', 'asc')
         .get()
 
-      const members = data.map(m => ({
-        ...m,
-        relationLabel: getRelationLabel(m.relation),
-        age: calcAge(m.birthday)
-      }))
+      const ownerName = app.globalData.memberInfo?.name || '管理员'
+    const members = data.map(m => ({
+      ...m,
+      relationLabel: getRelationLabel(m.relation),
+      age: calcAge(m.birthday),
+      agentLabel: m.is_bound ? '' : ownerName
+    }))
 
       const currentMemberId = this.data.currentMemberId || (members[0] && members[0]._id) || ''
       this.setData({ members, currentMemberId })

@@ -10,7 +10,7 @@
           </view>
           <view class="meta-row">
             <text class="role-badge role-{{item.role}}">{{item.roleLabel}}</text>
-            <text class="bound-status {{item.bound ? 'bound' : 'unbound'}}">{{item.bound ? '已绑定' : '未绑定'}}</text>
+            <text class="bound-status {{item.is_bound ? 'bound' : 'unbound'}}">{{item.is_bound ? '已绑定' : '未绑定'}}</text>
           </view>
         </view>
       </view>
@@ -24,7 +24,7 @@
   </view>
 
   <view class="empty-state" wx:if="{{!loading && members.length === 0}}">
-    <image class="empty-img" src="/images/empty.png" mode="aspectFit"/>
+    <view class="empty-icon-wrap">👤</view>
     <text class="empty-text">添加第一个家庭成员</text>
   </view>
 

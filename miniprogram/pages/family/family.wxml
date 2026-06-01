@@ -43,6 +43,7 @@
         <view class="card-meta">
           <text wx:if="{{currentMember.age !== ''}}">{{currentMember.age}}岁</text>
           <text class="card-bound" wx:if="{{currentMember.is_bound}}">已绑定</text>
+          <text class="card-unbound" wx:elif="{{currentMember.agentLabel}}">由{{currentMember.agentLabel}}代理</text>
           <text class="card-unbound" wx:else>未绑定</text>
         </view>
       </view>

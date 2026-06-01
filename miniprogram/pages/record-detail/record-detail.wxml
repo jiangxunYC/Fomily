@@ -24,24 +24,24 @@
       <text class="field-label">费用</text>
       <text class="field-value">¥{{record.cost}}</text>
     </view>
-    <view class="field" wx:if="{{record.nextVisit}}">
+    <view class="field" wx:if="{{record.next_visit_date}}">
       <text class="field-label">下次复诊日期</text>
-      <text class="field-value">{{record.nextVisit}}</text>
+      <text class="field-value">{{record.next_visit_date}}</text>
     </view>
   </view>
 
   <view class="detail-card" wx:if="{{type === 'vaccine'}}">
-    <view class="field" wx:if="{{record.vaccineName}}">
+    <view class="field" wx:if="{{record.vaccine_name}}">
       <text class="field-label">疫苗名称</text>
-      <text class="field-value">{{record.vaccineName}}</text>
+      <text class="field-value">{{record.vaccine_name}}</text>
     </view>
     <view class="field" wx:if="{{record.institution}}">
       <text class="field-label">接种机构</text>
       <text class="field-value">{{record.institution}}</text>
     </view>
-    <view class="field" wx:if="{{record.nextDate}}">
+    <view class="field" wx:if="{{record.next_dose_date}}">
       <text class="field-label">下一针日期</text>
-      <text class="field-value">{{record.nextDate}}</text>
+      <text class="field-value">{{record.next_dose_date}}</text>
     </view>
   </view>
 
@@ -50,17 +50,17 @@
       <text class="field-label">保险公司</text>
       <text class="field-value">{{record.company}}</text>
     </view>
-    <view class="field" wx:if="{{record.insuranceName}}">
+    <view class="field" wx:if="{{record.insurance_type}}">
       <text class="field-label">险种名称</text>
-      <text class="field-value">{{record.insuranceName}}</text>
+      <text class="field-value">{{record.insurance_type}}</text>
     </view>
-    <view class="field" wx:if="{{record.policyNo}}">
+    <view class="field" wx:if="{{record.policy_no}}">
       <text class="field-label">保单号</text>
-      <text class="field-value">{{record.policyNo}}</text>
+      <text class="field-value">{{record.policy_no}}</text>
     </view>
-    <view class="field" wx:if="{{record.expireDate}}">
+    <view class="field" wx:if="{{record.end_date}}">
       <text class="field-label">到期日期</text>
-      <text class="field-value">{{record.expireDate}}</text>
+      <text class="field-value">{{record.end_date}}</text>
     </view>
     <view class="field" wx:if="{{record.premium}}">
       <text class="field-label">保费金额</text>

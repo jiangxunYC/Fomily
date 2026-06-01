@@ -32,12 +32,17 @@ Page({
   async loadFamilyInfo() {
     try {
       const family = await getFamilyInfo()
-      if (family) {
-        this.setData({
-          familyName: family.name || '我的家庭',
-          memberCount: family.memberCount || 0
-        })
-      }
+      if (!family) return
+
+      const familyId = family._id
+      const { total } = await db.collection(collections.MEMBER)
+        .where({ family_id: familyId })
+        .count()
+
+      this.setData({
+        familyName: family.name || '我的家庭',
+        memberCount: total || 0
+      })
     } catch (e) {
       console.error('loadFamilyInfo:', e)
     }
