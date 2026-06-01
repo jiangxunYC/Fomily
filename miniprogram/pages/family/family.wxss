@@ -1,6 +1,6 @@
 .page {
   min-height: 100vh;
-  background: #f5f5f5;
+  background: #FAF9F7;
   padding-bottom: 120rpx;
 }
 
@@ -17,7 +17,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #fff;
+  background: rgba(213, 227, 214, 0.3);
   border-radius: 16rpx;
   padding: 80rpx 60rpx;
   width: 100%;
@@ -32,18 +32,18 @@
 .banner-title {
   font-size: 36rpx;
   font-weight: 600;
-  color: #333;
+  color: #1A1C1B;
   margin-bottom: 16rpx;
 }
 
 .banner-desc {
   font-size: 28rpx;
-  color: #999;
+  color: #556257;
   margin-bottom: 48rpx;
 }
 
 .banner-btn {
-  background: #4CAF50;
+  background: #426446;
   color: #fff;
   font-size: 32rpx;
   border-radius: 44rpx;
@@ -67,12 +67,12 @@
 
 .empty-text {
   font-size: 30rpx;
-  color: #999;
+  color: #556257;
   margin-bottom: 48rpx;
 }
 
 .add-first-btn {
-  background: #4CAF50;
+  background: #426446;
   color: #fff;
   font-size: 30rpx;
   border-radius: 44rpx;
@@ -83,7 +83,7 @@
 /* 成员横向滚动 */
 .member-tabs {
   white-space: nowrap;
-  background: #fff;
+  background: rgba(213, 227, 214, 0.3);
   padding: 24rpx 16rpx;
 }
 
@@ -97,11 +97,11 @@
 }
 
 .member-tab.active {
-  background: rgba(76, 175, 80, 0.1);
+  background: rgba(213, 227, 214, 0.3);
 }
 
 .member-tab.active .tab-name {
-  color: #4CAF50;
+  color: #426446;
   font-weight: 600;
 }
 
@@ -114,12 +114,12 @@
 }
 
 .member-tab.active .tab-avatar {
-  border-color: #4CAF50;
+  border-color: #426446;
 }
 
 .tab-name {
   font-size: 24rpx;
-  color: #666;
+  color: #424841;
   max-width: 100rpx;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -130,11 +130,11 @@
 .member-card {
   display: flex;
   align-items: center;
-  background: #fff;
+  background: rgba(213, 227, 214, 0.3);
   margin: 24rpx 24rpx 0;
   padding: 32rpx;
   border-radius: 16rpx;
-  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2rpx 12rpx rgba(66, 100, 70, 0.04);
 }
 
 .card-avatar {
@@ -159,21 +159,21 @@
 .card-name {
   font-size: 34rpx;
   font-weight: 600;
-  color: #333;
+  color: #1A1C1B;
   margin-right: 16rpx;
 }
 
 .card-relation {
   font-size: 24rpx;
-  color: #4CAF50;
-  background: rgba(76, 175, 80, 0.1);
+  color: #426446;
+  background: rgba(213, 227, 214, 0.3);
   padding: 4rpx 16rpx;
   border-radius: 20rpx;
 }
 
 .card-meta {
   font-size: 26rpx;
-  color: #999;
+  color: #556257;
 }
 
 .card-meta text {
@@ -181,16 +181,16 @@
 }
 
 .card-bound {
-  color: #4CAF50;
+  color: #426446;
 }
 
 .card-unbound {
-  color: #ccc;
+  color: #556257;
 }
 
 .card-arrow {
   font-size: 40rpx;
-  color: #ccc;
+  color: #556257;
   flex-shrink: 0;
 }
 
@@ -207,39 +207,39 @@
 
 .select-count {
   font-size: 28rpx;
-  color: #666;
+  color: #424841;
   flex: 1;
 }
 
 .cancel-select {
   font-size: 28rpx;
-  color: #999;
+  color: #556257;
   margin-right: 32rpx;
 }
 
 .batch-delete {
   font-size: 28rpx;
-  color: #f44336;
+  color: #e57373;
 }
 
 .empty-record {
   text-align: center;
   padding: 80rpx 0;
-  color: #ccc;
+  color: #556257;
   font-size: 28rpx;
 }
 
 .record-item {
   display: flex;
   align-items: center;
-  background: #fff;
+  background: rgba(213, 227, 214, 0.3);
   padding: 28rpx 24rpx;
   border-radius: 16rpx;
   margin-bottom: 16rpx;
 }
 
 .record-item.selected {
-  background: rgba(76, 175, 80, 0.05);
+  background: rgba(213, 227, 214, 0.15);
 }
 
 .record-check {
@@ -250,13 +250,13 @@
 .check-box {
   width: 40rpx;
   height: 40rpx;
-  border: 3rpx solid #ddd;
+  border: 3rpx solid #556257;
   border-radius: 50%;
 }
 
 .check-box.checked {
-  background: #4CAF50;
-  border-color: #4CAF50;
+  background: #426446;
+  border-color: #426446;
 }
 
 .record-badge {
@@ -269,18 +269,18 @@
 }
 
 .record-badge-medical {
-  background: #E3F2FD;
-  color: #1976D2;
+  background: rgba(213, 227, 214, 0.4);
+  color: #426446;
 }
 
 .record-badge-vaccine {
-  background: #FFF3E0;
-  color: #F57C00;
+  background: rgba(171, 208, 171, 0.2);
+  color: #75562C;
 }
 
 .record-badge-insurance {
-  background: #E8F5E9;
-  color: #388E3C;
+  background: rgba(213, 227, 214, 0.4);
+  color: #426446;
 }
 
 .record-body {
@@ -290,7 +290,7 @@
 
 .record-summary {
   font-size: 28rpx;
-  color: #333;
+  color: #1A1C1B;
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -299,7 +299,7 @@
 
 .record-date {
   font-size: 24rpx;
-  color: #bbb;
+  color: #556257;
   margin-top: 6rpx;
   display: block;
 }
@@ -311,12 +311,12 @@
   bottom: 140rpx;
   width: 100rpx;
   height: 100rpx;
-  background: #4CAF50;
+  background: #426446;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8rpx 24rpx rgba(76, 175, 80, 0.4);
+  box-shadow: 0 8rpx 24rpx rgba(66, 100, 70, 0.4);
 }
 
 .fab-icon {

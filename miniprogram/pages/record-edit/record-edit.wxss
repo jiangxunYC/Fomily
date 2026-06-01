@@ -1,5 +1,5 @@
 .page {
-  background: #f5f5f5;
+  background: #FAF9F7;
   min-height: 100vh;
   padding-bottom: 140rpx;
 }
@@ -7,7 +7,7 @@
 .type-selector {
   display: flex;
   margin: 24rpx;
-  background: #fff;
+  background: rgba(213, 227, 214, 0.3);
   border-radius: 16rpx;
   overflow: hidden;
 }
@@ -17,17 +17,17 @@
   text-align: center;
   padding: 22rpx 0;
   font-size: 28rpx;
-  color: #666;
+  color: #424841;
 }
 
 .type-item.active {
-  background: #4CAF50;
+  background: #426446;
   color: #fff;
   font-weight: 600;
 }
 
 .form-card {
-  background: #fff;
+  background: rgba(213, 227, 214, 0.3);
   margin: 0 24rpx 24rpx;
   border-radius: 16rpx;
   padding: 28rpx;
@@ -43,37 +43,37 @@
 
 .label {
   font-size: 26rpx;
-  color: #666;
+  color: #424841;
   margin-bottom: 12rpx;
   display: block;
 }
 
 .input {
-  border-bottom: 2rpx solid #eee;
+  border-bottom: 2rpx solid rgba(194, 200, 191, 0.3);
   padding: 12rpx 0;
   font-size: 30rpx;
-  color: #333;
+  color: #1A1C1B;
 }
 
 .textarea {
   width: 100%;
   min-height: 120rpx;
-  border-bottom: 2rpx solid #eee;
+  border-bottom: 2rpx solid rgba(194, 200, 191, 0.3);
   padding: 12rpx 0;
   font-size: 30rpx;
-  color: #333;
+  color: #1A1C1B;
 }
 
 .picker-text {
   font-size: 30rpx;
-  color: #333;
+  color: #1A1C1B;
   padding: 12rpx 0;
-  border-bottom: 2rpx solid #eee;
+  border-bottom: 2rpx solid rgba(194, 200, 191, 0.3);
   display: block;
 }
 
 .picker-text.placeholder {
-  color: #bbb;
+  color: #556257;
 }
 
 .image-upload {
@@ -93,7 +93,7 @@
   width: 160rpx;
   height: 160rpx;
   border-radius: 12rpx;
-  border: 2rpx dashed #ccc;
+  border: 2rpx dashed rgba(194, 200, 191, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,7 +101,7 @@
 
 .plus {
   font-size: 56rpx;
-  color: #ccc;
+  color: #556257;
 }
 
 .bottom-bar {
@@ -111,12 +111,12 @@
   right: 0;
   padding: 20rpx 32rpx;
   padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
-  background: #fff;
-  box-shadow: 0 -2rpx 10rpx rgba(0,0,0,0.05);
+  background: rgba(213, 227, 214, 0.3);
+  box-shadow: 0 -2rpx 10rpx rgba(66, 100, 70, 0.08);
 }
 
 .btn-save {
-  background: #4CAF50;
+  background: #426446;
   color: #fff;
   border-radius: 16rpx;
   font-size: 32rpx;

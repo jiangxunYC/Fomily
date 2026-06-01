@@ -1,12 +1,12 @@
 .page {
   min-height: 100vh;
-  background: #f5f5f5;
+  background: #FAF9F7;
   padding: 24rpx;
   padding-bottom: 240rpx;
 }
 
 .form-card {
-  background: #fff;
+  background: rgba(213, 227, 214, 0.3);
   border-radius: 16rpx;
   padding: 12rpx 32rpx;
 }
@@ -16,7 +16,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 28rpx 0;
-  border-bottom: 1rpx solid #f5f5f5;
+  border-bottom: 1rpx solid rgba(194, 200, 191, 0.3);
 }
 
 .form-item:last-child {
@@ -25,7 +25,7 @@
 
 .form-label {
   font-size: 28rpx;
-  color: #333;
+  color: #1A1C1B;
   width: 160rpx;
   flex-shrink: 0;
 }
@@ -34,16 +34,16 @@
   flex: 1;
   text-align: right;
   font-size: 28rpx;
-  color: #333;
+  color: #1A1C1B;
 }
 
 .form-value {
   font-size: 28rpx;
-  color: #333;
+  color: #1A1C1B;
 }
 
 .form-value.readonly {
-  color: #999;
+  color: #556257;
 }
 
 .avatar-item {
@@ -54,7 +54,7 @@
   width: 96rpx;
   height: 96rpx;
   border-radius: 50%;
-  background: #f0f0f0;
+  background: rgba(194, 200, 191, 0.3);
 }
 
 .role-display {
@@ -69,8 +69,8 @@
   color: #fff;
 }
 
-.role-owner { background: #4CAF50; }
-.role-editor { background: #FF9800; }
+.role-owner { background: #426446; }
+.role-editor { background: #75562C; }
 .role-viewer { background: #9E9E9E; }
 
 .btn-area {
@@ -79,11 +79,11 @@
   left: 0;
   right: 0;
   padding: 24rpx 32rpx 48rpx;
-  background: #f5f5f5;
+  background: #FAF9F7;
 }
 
 .btn-save {
-  background: #4CAF50;
+  background: #426446;
   color: #fff;
   border-radius: 16rpx;
   font-size: 30rpx;
@@ -93,8 +93,8 @@
 }
 
 .btn-logout {
-  background: #fff;
-  color: #f44336;
+  background: rgba(213, 227, 214, 0.3);
+  color: #e57373;
   border-radius: 16rpx;
   font-size: 28rpx;
   height: 80rpx;

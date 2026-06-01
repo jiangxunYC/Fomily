@@ -1,38 +1,42 @@
+/* === Fomily Design System — from Figma === */
+/* Colors: BG #FAF9F7 | Text #1A1C1B | Text2 #424841 | Text3 #556257 */
+/* Accent #426446 | Card rgba(213,227,214,0.3) | Shadow rgba(66,100,70,0.05) */
+
 page {
-  background-color: #f5f5f5;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #FAF9F7;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
   font-size: 28rpx;
-  color: #333333;
+  color: #1A1C1B;
   line-height: 1.5;
 }
 
 .container {
-  padding: 24rpx 32rpx;
+  padding: 32rpx;
 }
 
 .card {
-  background: #ffffff;
+  background: rgba(213, 227, 214, 0.3);
   border-radius: 16rpx;
-  padding: 24rpx;
+  padding: 32rpx;
   margin-bottom: 24rpx;
-  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8rpx 24rpx rgba(66, 100, 70, 0.05);
 }
 
 .section-title {
-  font-size: 32rpx;
-  font-weight: 600;
-  color: #1a1a1a;
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #1A1C1B;
   margin-bottom: 16rpx;
 }
 
 .btn-primary {
-  background: #4CAF50;
-  color: #ffffff;
+  background: #426446;
+  color: #FAF9F7;
   border-radius: 12rpx;
-  padding: 20rpx 40rpx;
+  padding: 24rpx 48rpx;
   text-align: center;
-  font-size: 30rpx;
-  font-weight: 500;
+  font-size: 32rpx;
+  font-weight: 600;
 }
 
 .btn-primary:active {
@@ -40,24 +44,24 @@ page {
 }
 
 .btn-secondary {
-  background: #ffffff;
-  color: #4CAF50;
-  border: 2rpx solid #4CAF50;
+  background: rgba(213, 227, 214, 0.3);
+  color: #426446;
+  border: 2rpx solid #426446;
   border-radius: 12rpx;
-  padding: 20rpx 40rpx;
+  padding: 24rpx 48rpx;
   text-align: center;
-  font-size: 30rpx;
-  font-weight: 500;
+  font-size: 32rpx;
+  font-weight: 600;
 }
 
 .btn-danger {
-  background: #ff4d4f;
-  color: #ffffff;
+  background: #e57373;
+  color: #FAF9F7;
   border-radius: 12rpx;
-  padding: 20rpx 40rpx;
+  padding: 24rpx 48rpx;
   text-align: center;
-  font-size: 30rpx;
-  font-weight: 500;
+  font-size: 32rpx;
+  font-weight: 600;
 }
 
 .empty-state {
@@ -65,43 +69,44 @@ page {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80rpx 40rpx;
+  padding: 120rpx 80rpx;
 }
 
 .empty-state .empty-icon {
   width: 200rpx;
   height: 200rpx;
-  margin-bottom: 24rpx;
+  margin-bottom: 32rpx;
+  opacity: 0.5;
 }
 
 .empty-state .empty-text {
   font-size: 28rpx;
-  color: #999999;
+  color: #556257;
 }
 
 .fab {
   position: fixed;
-  right: 40rpx;
+  right: 32rpx;
   bottom: 200rpx;
-  width: 100rpx;
-  height: 100rpx;
+  width: 112rpx;
+  height: 112rpx;
   border-radius: 50%;
-  background: #4CAF50;
+  background: #426446;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8rpx 24rpx rgba(76, 175, 80, 0.4);
+  box-shadow: 0 8rpx 24rpx rgba(66, 100, 70, 0.15);
   z-index: 100;
 }
 
 .fab text {
-  color: #ffffff;
-  font-size: 48rpx;
+  color: #FAF9F7;
+  font-size: 56rpx;
   font-weight: 300;
 }
 
 .guide-banner {
-  background: #E8F5E9;
+  background: rgba(213, 227, 214, 0.5);
   border-radius: 16rpx;
   padding: 32rpx;
   margin-bottom: 24rpx;
@@ -109,22 +114,23 @@ page {
 
 .guide-banner .guide-title {
   font-size: 32rpx;
-  font-weight: 600;
-  color: #2E7D32;
+  font-weight: 700;
+  color: #426446;
   margin-bottom: 12rpx;
 }
 
 .guide-banner .guide-desc {
   font-size: 26rpx;
-  color: #4CAF50;
-  margin-bottom: 20rpx;
+  color: #556257;
+  margin-bottom: 24rpx;
 }
 
 .guide-banner .guide-btn {
   display: inline-block;
-  background: #4CAF50;
-  color: #ffffff;
-  padding: 12rpx 32rpx;
-  border-radius: 8rpx;
-  font-size: 26rpx;
+  background: #426446;
+  color: #FAF9F7;
+  padding: 16rpx 40rpx;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  font-weight: 600;
 }

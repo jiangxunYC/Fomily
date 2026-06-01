@@ -11,18 +11,18 @@
 .family-name {
   font-size: 36rpx;
   font-weight: 600;
-  color: #1a1a1a;
+  color: #1A1C1B;
   margin-bottom: 8rpx;
 }
 
 .family-meta {
   font-size: 26rpx;
-  color: #666666;
+  color: #424841;
 }
 
 .family-card-arrow {
   font-size: 40rpx;
-  color: #cccccc;
+  color: #556257;
 }
 
 .quick-actions {
@@ -52,20 +52,20 @@
 }
 
 .medical-icon {
-  background: #4CAF50;
+  background: #426446;
 }
 
 .vaccine-icon {
-  background: #2196F3;
+  background: #75562C;
 }
 
 .insurance-icon {
-  background: #FF9800;
+  background: #ABD0AB;
 }
 
 .quick-btn text {
   font-size: 24rpx;
-  color: #555555;
+  color: #424841;
 }
 
 .timeline {
@@ -89,15 +89,15 @@
 }
 
 .timeline-dot.medical {
-  background: #4CAF50;
+  background: #426446;
 }
 
 .timeline-dot.vaccine {
-  background: #2196F3;
+  background: #75562C;
 }
 
 .timeline-dot.insurance {
-  background: #FF9800;
+  background: #ABD0AB;
 }
 
 .timeline-body {
@@ -113,24 +113,24 @@
 
 .timeline-type {
   font-size: 24rpx;
-  color: #4CAF50;
+  color: #426446;
   font-weight: 500;
 }
 
 .timeline-time {
   font-size: 22rpx;
-  color: #999999;
+  color: #556257;
 }
 
 .timeline-title {
   font-size: 28rpx;
-  color: #333333;
+  color: #1A1C1B;
   margin-bottom: 6rpx;
 }
 
 .timeline-desc {
   font-size: 24rpx;
-  color: #888888;
+  color: #556257;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

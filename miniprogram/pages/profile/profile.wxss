@@ -1,6 +1,6 @@
 .page {
   min-height: 100vh;
-  background: #f5f5f5;
+  background: #FAF9F7;
   padding-bottom: 60rpx;
 }
 
@@ -9,9 +9,9 @@
   align-items: center;
   margin: 30rpx 30rpx 0;
   padding: 40rpx 30rpx;
-  background: #4CAF50;
+  background: #426446;
   border-radius: 20rpx;
-  box-shadow: 0 4rpx 16rpx rgba(76, 175, 80, 0.3);
+  box-shadow: 0 4rpx 16rpx rgba(66, 100, 70, 0.3);
 }
 
 .avatar {
@@ -19,7 +19,7 @@
   height: 120rpx;
   border-radius: 50%;
   border: 4rpx solid rgba(255, 255, 255, 0.8);
-  background: #e0e0e0;
+  background: rgba(213, 227, 214, 0.3);
 }
 
 .user-text {
@@ -49,10 +49,10 @@
 
 .menu-list {
   margin: 30rpx;
-  background: #fff;
+  background: rgba(213, 227, 214, 0.3);
   border-radius: 16rpx;
   overflow: hidden;
-  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2rpx 8rpx rgba(66, 100, 70, 0.04);
 }
 
 .menu-item {
@@ -60,7 +60,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 32rpx 30rpx;
-  border-bottom: 1rpx solid #f0f0f0;
+  border-bottom: 1rpx solid rgba(66, 100, 70, 0.1);
 }
 
 .menu-item:last-child {
@@ -69,7 +69,7 @@
 
 .menu-label {
   font-size: 30rpx;
-  color: #333;
+  color: #1A1C1B;
 }
 
 .menu-item .arrow {
@@ -84,12 +84,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
+  background: rgba(213, 227, 214, 0.3);
   border-radius: 16rpx;
-  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2rpx 8rpx rgba(66, 100, 70, 0.04);
 }
 
 .logout-btn text {
   font-size: 30rpx;
-  color: #e53935;
+  color: #e57373;
 }
