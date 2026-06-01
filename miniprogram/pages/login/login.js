@@ -36,16 +36,28 @@ Page({
 
     wx.showLoading({ title: '创建中...', mask: true })
     try {
-      await wx.cloud.callFunction({
+      const { result } = await wx.cloud.callFunction({
         name: 'family',
         data: { action: 'create', data: { name: familyName } }
       })
+
+      if (result.code !== 0) {
+        wx.hideLoading()
+        if (result.msg === 'already in a family') {
+          // Already has a family — just sign in
+          await login()
+          wx.reLaunch({ url: '/pages/home/home' })
+          return
+        }
+        return wx.showToast({ title: result.msg || '创建失败', icon: 'none', duration: 2000 })
+      }
+
       await login()
       wx.hideLoading()
       wx.reLaunch({ url: '/pages/home/home' })
     } catch (e) {
       wx.hideLoading()
-      wx.showToast({ title: '创建失败，请重试', icon: 'none' })
+      wx.showToast({ title: '网络错误，请重试', icon: 'none' })
       console.error('doCreate:', e)
     }
   },
@@ -62,17 +74,23 @@ Page({
         name: 'family',
         data: { action: 'join', data: { invite_code: inviteCode } }
       })
+
       if (result.code !== 0) {
         wx.hideLoading()
-        wx.showToast({ title: result.msg || '加入失败，邀请码无效', icon: 'none' })
-        return
+        if (result.msg === 'already in a family') {
+          await login()
+          wx.reLaunch({ url: '/pages/home/home' })
+          return
+        }
+        return wx.showToast({ title: result.msg || '加入失败', icon: 'none', duration: 2000 })
       }
+
       await login()
       wx.hideLoading()
       wx.reLaunch({ url: '/pages/home/home' })
     } catch (e) {
       wx.hideLoading()
-      wx.showToast({ title: '加入失败，请重试', icon: 'none' })
+      wx.showToast({ title: '网络错误，请重试', icon: 'none' })
       console.error('doJoin:', e)
     }
   }

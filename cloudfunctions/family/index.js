@@ -34,13 +34,20 @@ function generateInviteCode() {
   return code
 }
 
+async function ensureUser(openid) {
+  const userRes = await db.collection('users').where({ openid }).get()
+  if (userRes.data.length > 0) return userRes.data[0]
+  const newUser = { openid, nickname: '', avatar: '', phone: '', family_id: '', created_at: db.serverDate() }
+  const addRes = await db.collection('users').add({ data: newUser })
+  newUser._id = addRes._id
+  return newUser
+}
+
 async function create(openid, data) {
   const { name } = data
   if (!name) return { code: -1, msg: 'name required' }
 
-  const userRes = await db.collection('users').where({ openid }).get()
-  if (userRes.data.length === 0) return { code: -1, msg: 'user not found' }
-  const user = userRes.data[0]
+  const user = await ensureUser(openid)
   if (user.family_id) return { code: -1, msg: 'already in a family' }
 
   const invite_code = generateInviteCode()
@@ -78,9 +85,7 @@ async function join(openid, data) {
   const { invite_code } = data
   if (!invite_code) return { code: -1, msg: 'invite_code required' }
 
-  const userRes = await db.collection('users').where({ openid }).get()
-  if (userRes.data.length === 0) return { code: -1, msg: 'user not found' }
-  const user = userRes.data[0]
+  const user = await ensureUser(openid)
   if (user.family_id) return { code: -1, msg: 'already in a family' }
 
   const familyRes = await db.collection('families').where({ invite_code }).get()
