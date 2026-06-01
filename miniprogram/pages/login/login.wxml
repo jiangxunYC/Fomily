@@ -2,25 +2,33 @@
   <view class="content">
     <image class="logo" src="../../images/logo.png" mode="aspectFit"/>
     <text class="app-name">Fomily</text>
-    <text class="slogan">家庭健康，用心守护</text>
+    <text class="slogan">家庭信息，共享管理</text>
 
-    <button class="btn-primary" bindtap="onCreate">创建我的家庭</button>
-    <button class="btn-secondary" bindtap="onJoin">加入已有家庭</button>
+    <view class="btn-primary" bindtap="onCreate">创建我的家庭</view>
+    <view class="btn-secondary" bindtap="onJoin">加入已有家庭</view>
   </view>
 
+  <!-- 创建家庭弹窗 -->
   <view class="modal-mask" wx:if="{{showCreateModal}}" bindtap="closeModal">
     <view class="modal" catchtap="">
-      <text class="modal-title">创建家庭</text>
-      <input class="modal-input" placeholder="请输入家庭名称" value="{{familyName}}" bindinput="onFamilyNameInput"/>
-      <button class="modal-btn" bindtap="doCreate">确认创建</button>
+      <view class="modal-header">
+        <text class="modal-title">创建家庭</text>
+        <text class="modal-close" bindtap="closeModal">✕</text>
+      </view>
+      <input class="modal-input" placeholder="请输入家庭名称" value="{{familyName}}" bindinput="onFamilyNameInput" focus="{{true}}" maxlength="20"/>
+      <view class="modal-btn" bindtap="doCreate">确认创建</view>
     </view>
   </view>
 
+  <!-- 加入家庭弹窗 -->
   <view class="modal-mask" wx:if="{{showJoinModal}}" bindtap="closeModal">
     <view class="modal" catchtap="">
-      <text class="modal-title">加入家庭</text>
-      <input class="modal-input" placeholder="请输入邀请码" value="{{inviteCode}}" bindinput="onInviteCodeInput" maxlength="6"/>
-      <button class="modal-btn" bindtap="doJoin">确认加入</button>
+      <view class="modal-header">
+        <text class="modal-title">加入家庭</text>
+        <text class="modal-close" bindtap="closeModal">✕</text>
+      </view>
+      <input class="modal-input" placeholder="请输入6位邀请码" value="{{inviteCode}}" bindinput="onInviteCodeInput" maxlength="6" focus="{{true}}"/>
+      <view class="modal-btn" bindtap="doJoin">确认加入</view>
     </view>
   </view>
 </view>

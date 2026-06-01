@@ -8,21 +8,12 @@ Page({
     inviteCode: ''
   },
 
-  async getUserProfile() {
-    try {
-      const { userInfo } = await wx.getUserProfile({ desc: '用于完善个人资料' })
-      return userInfo
-    } catch (e) {
-      return null
-    }
-  },
-
   onCreate() {
-    this.setData({ showCreateModal: true, showJoinModal: false })
+    this.setData({ showCreateModal: true, showJoinModal: false, familyName: '' })
   },
 
   onJoin() {
-    this.setData({ showJoinModal: true, showCreateModal: false })
+    this.setData({ showJoinModal: true, showCreateModal: false, inviteCode: '' })
   },
 
   closeModal() {
@@ -38,44 +29,42 @@ Page({
   },
 
   async doCreate() {
-    const { familyName } = this.data
-    if (!familyName.trim()) {
+    const familyName = this.data.familyName.trim()
+    if (!familyName) {
       return wx.showToast({ title: '请输入家庭名称', icon: 'none' })
     }
 
-    const userInfo = await this.getUserProfile()
-    wx.showLoading({ title: '创建中...' })
+    wx.showLoading({ title: '创建中...', mask: true })
     try {
       await wx.cloud.callFunction({
         name: 'family',
-        data: { action: 'create', data: { name: familyName.trim() } }
+        data: { action: 'create', data: { name: familyName } }
       })
       await login()
       wx.hideLoading()
       wx.reLaunch({ url: '/pages/home/home' })
     } catch (e) {
       wx.hideLoading()
-      wx.showToast({ title: '创建失败', icon: 'none' })
+      wx.showToast({ title: '创建失败，请重试', icon: 'none' })
       console.error('doCreate:', e)
     }
   },
 
   async doJoin() {
-    const { inviteCode } = this.data
-    if (!inviteCode.trim() || inviteCode.length < 6) {
-      return wx.showToast({ title: '请输入正确的邀请码', icon: 'none' })
+    const inviteCode = this.data.inviteCode.trim().toUpperCase()
+    if (!inviteCode || inviteCode.length < 6) {
+      return wx.showToast({ title: '请输入6位邀请码', icon: 'none' })
     }
 
-    const userInfo = await this.getUserProfile()
-    wx.showLoading({ title: '加入中...' })
+    wx.showLoading({ title: '加入中...', mask: true })
     try {
       const { result } = await wx.cloud.callFunction({
         name: 'family',
-        data: { action: 'join', data: { invite_code: inviteCode.trim() } }
+        data: { action: 'join', data: { invite_code: inviteCode } }
       })
       if (result.code !== 0) {
         wx.hideLoading()
-        wx.showToast({ title: result.message || '加入失败', icon: 'none' })
+        wx.showToast({ title: result.msg || '加入失败，邀请码无效', icon: 'none' })
         return
       }
       await login()
@@ -83,7 +72,7 @@ Page({
       wx.reLaunch({ url: '/pages/home/home' })
     } catch (e) {
       wx.hideLoading()
-      wx.showToast({ title: '加入失败', icon: 'none' })
+      wx.showToast({ title: '加入失败，请重试', icon: 'none' })
       console.error('doJoin:', e)
     }
   }

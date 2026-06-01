@@ -76,18 +76,30 @@
   width: 600rpx;
   background: #FAF9F7;
   border-radius: 24rpx;
-  padding: 48rpx 40rpx;
+  padding: 40rpx;
   display: flex;
   flex-direction: column;
-  align-items: center;
   box-shadow: 0 16rpx 48rpx rgba(66, 100, 70, 0.1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32rpx;
 }
 
 .modal-title {
   font-size: 34rpx;
   font-weight: 600;
   color: #1A1C1B;
-  margin-bottom: 36rpx;
+}
+
+.modal-close {
+  font-size: 40rpx;
+  color: #556257;
+  padding: 8rpx;
+  line-height: 1;
 }
 
 .modal-input {
@@ -97,8 +109,9 @@
   padding: 20rpx 24rpx;
   font-size: 30rpx;
   text-align: center;
-  margin-bottom: 36rpx;
+  margin-bottom: 32rpx;
   color: #1A1C1B;
+  box-sizing: border-box;
 }
 
 .modal-btn {
