@@ -54,7 +54,9 @@ Page({
     }
     try {
       const { data } = await db.collection(collMap[this.data.type]).doc(this.recordId).get()
-      const form = { ...data, date: formatDate(data.visit_date || data.vacc_date || data.start_date) }
+      const DATE_KEY = { medical: 'visit_date', vaccine: 'vacc_date', insurance: 'start_date' }
+      const primaryDate = data[DATE_KEY[this.data.type]] || Object.values(data).find(v => typeof v === 'string' && v.match(/^\d{4}-\d{2}-\d{2}/))
+      const form = { ...data, date: formatDate(primaryDate) }
       if (data.next_visit_date) form.nextVisit = formatDate(data.next_visit_date)
       if (data.next_dose_date) form.nextDate = formatDate(data.next_dose_date)
       if (data.end_date) form.expireDate = formatDate(data.end_date)
@@ -130,17 +132,21 @@ Page({
         }
       }
 
-      const recordData = {
-        ...form,
-        images: uploadedImages,
-        date: new Date(form.date)
+      // Map camelCase form fields to snake_case for cloud function
+      // Also map generic 'date' to the type-specific primary date field
+      const DATE_KEY = { medical: 'visit_date', vaccine: 'vacc_date', insurance: 'start_date' }
+      const fieldMap = { nextVisit: 'next_visit_date', nextDate: 'next_dose_date', expireDate: 'end_date', policyNo: 'policy_no' }
+      const mapped = { [DATE_KEY[type] || 'date']: form.date }
+      for (const [key, val] of Object.entries(form)) {
+        if (key === 'date') continue
+        if (val !== '' && val !== undefined) {
+          mapped[fieldMap[key] || key] = val
+        }
       }
-      delete recordData._id
-      delete recordData._openid
-      delete recordData.memberId
+      mapped.images = uploadedImages
 
       const action = mode === 'edit' ? 'update' : 'add'
-      const callData = { action, data: { type, ...recordData, member_id: members[memberIndex]._id } }
+      const callData = { action, data: { type, ...mapped, member_id: members[memberIndex]._id } }
       if (mode === 'edit') {
         callData.data.record_id = this.recordId
       }

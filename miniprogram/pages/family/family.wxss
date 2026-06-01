@@ -23,10 +23,28 @@
   width: 100%;
 }
 
-.banner-icon {
-  width: 200rpx;
-  height: 200rpx;
-  margin-bottom: 40rpx;
+.banner-icon-wrap {
+  width: 160rpx;
+  height: 160rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(213, 227, 214, 0.4);
+  border-radius: 50%;
+  font-size: 80rpx;
+  margin-bottom: 32rpx;
+}
+
+.empty-icon-wrap {
+  width: 160rpx;
+  height: 160rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(213, 227, 214, 0.4);
+  border-radius: 50%;
+  font-size: 64rpx;
+  margin-bottom: 24rpx;
 }
 
 .banner-title {

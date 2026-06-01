@@ -2,16 +2,16 @@
   <!-- 未登录遮罩 -->
   <view class="login-banner" wx:if="{{!isLoggedIn}}">
     <view class="banner-content">
-      <image class="banner-icon" src="/images/login-guide.png" mode="aspectFit" />
+      <view class="banner-icon-wrap">&#x1F3E0;</view>
       <text class="banner-title">登录后管理家庭成员</text>
-      <text class="banner-desc">记录家人的健康、疫苗、保险信息</text>
+      <text class="banner-desc">记录家人的看病、疫苗、保险信息</text>
       <button class="banner-btn" bindtap="goLogin">立即登录</button>
     </view>
   </view>
 
   <!-- 已登录无成员 -->
   <view class="empty-state" wx:elif="{{isLoggedIn && members.length === 0}}">
-    <image class="empty-img" src="/images/empty-family.png" mode="aspectFit" />
+    <view class="empty-icon-wrap">&#x1F464;</view>
     <text class="empty-text">还没有家庭成员</text>
     <button class="add-first-btn" bindtap="goAddMember">添加第一个家庭成员</button>
   </view>

@@ -1,6 +1,6 @@
 <view class="page">
   <view class="member-header">
-    <image class="avatar" src="{{member.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill"/>
+    <image class="avatar" src="{{member.avatar || '/images/default-avatar.png'}}" mode="aspectFill"/>
     <view class="info">
       <text class="name">{{member.name}}</text>
       <text class="relation">{{relationLabel}}</text>
